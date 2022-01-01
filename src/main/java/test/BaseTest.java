@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import org.testng.annotations.Optional;
 
 import java.io.File;
 import java.io.InputStream;
@@ -23,14 +24,19 @@ public class BaseTest {
     private String udid;
     private String port;
     private String systemPort;
+    private String platformName;
+    private String platformVersion;
+
 
     @BeforeTest(alwaysRun = true)
-    @Parameters({"udid", "port", "systemPort"})
-    public void beforeTest(String udid, String port, String systemPort) {
-        System.out.println(udid + "|" + port + "|" + systemPort);
+    @Parameters({"udid", "platformVersion", "port", "systemPort","platformName"})
+    public void beforeTest(String udid, @Optional("platformVersion") String platformVersion, String port, String systemPort, String platformName) {
+        System.out.println(udid + "|" + port + "|" + systemPort + "|" + platformName + "|" + platformVersion);
         this.udid = udid;
         this.port = port;
         this.systemPort = systemPort;
+        this.platformName = platformName;
+        this.platformVersion = platformVersion;
         driverThread = ThreadLocal.withInitial(() -> {
             DriverFactory driverThread = new DriverFactory();
             driverThreadPool.add(driverThread);
@@ -47,7 +53,7 @@ public class BaseTest {
     }
 
     public AppiumDriver<MobileElement> getDriver() {
-        return driverThread.get().getAppiumDriver(udid, port, systemPort);
+        return driverThread.get().getAppiumDriver(udid, port, systemPort,platformName, platformVersion);
     }
 
     // TODO: this can be enum type

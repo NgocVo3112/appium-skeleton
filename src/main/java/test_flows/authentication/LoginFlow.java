@@ -50,6 +50,7 @@ public class LoginFlow {
 
         String customErrMsg = "[ERR] Login msg title incorrect!";
         Assert.assertTrue(isTitleCorrect, customErrMsg);
+        loginPage.loginDialogComp().clickOK();
     }
 
     public void verifyLoginWithIncorrectCreds(LoginCreds loginCreds) {
