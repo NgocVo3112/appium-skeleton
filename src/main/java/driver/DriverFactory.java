@@ -49,7 +49,7 @@ public class DriverFactory {
         String localAppium = System.getenv("localAppium");
         String hub = System.getProperty("hub");
 
-        String targetServer;
+        String targetServer = null;
         if (localAppium != null) {
             targetServer = localAppium + "/wd/hub";
         } else if (hub != null) {

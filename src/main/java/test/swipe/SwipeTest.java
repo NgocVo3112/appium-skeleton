@@ -10,19 +10,19 @@ import test_flows.swipe.SwipeFlow;
 public class SwipeTest extends BaseTest {
     @Description("Swipe vertically to see the icon at the end")
     @Test
-    public void VerifySwipeVerticallyToSeeIcon(){
+    public void VerifySwipeVerticallyToSeeIcon() throws InterruptedException {
         AppiumDriver<MobileElement> androidDriver = getDriver();
         SwipeFlow swipeFlow = new SwipeFlow(androidDriver);
         swipeFlow.navigateToSwipeForm()
-                .SwipeVerticallyToSeeIcon();
+                .swipeVerticalAndCheckIconDisplayed();
     }
 
     @Description("User can swipe and texts are displayed correctly")
     @Test
-    public void VerifySwipeHorizontalAndTextsAreDisplayed(){
+    public void VerifySwipeHorizontalAndTextsAreDisplayed() throws InterruptedException {
         AppiumDriver<MobileElement> androidDriver = getDriver();
         SwipeFlow swipeFlow = new SwipeFlow(androidDriver);
         swipeFlow.navigateToSwipeForm()
-                .swipeHorizontalAndTextsAreDisplayed();
+                .swipeHorizontalAndCheckTextsDisplayed();
     }
 }

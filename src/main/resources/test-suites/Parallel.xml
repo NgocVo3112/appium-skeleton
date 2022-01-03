@@ -7,16 +7,10 @@
         <parameter name="port" value="7000"/>
         <parameter name="systemPort" value="8300"/>
         <parameter name="platformName" value="android"/>
-<!--        <classes>-->
-<!--            <class name="test.authentication.LoginTest"/>-->
-<!--        </classes>-->
-                <packages>
-                    <package name="test.authentication"/>
-<!--                    <package name="test.form"/>-->
-<!--                    <package name="test.homePage"/>-->
-<!--                    <package name="test.swipe"/>-->
-<!--                    <package name="test.webView"/>-->
-                </packages>
+        <classes>
+            <class name="test.authentication.LoginTest"/>
+        </classes>
+
     </test>
     <test name="Authentication | iPhone 13">
         <parameter name="udid" value="iPhone 13"/>
@@ -27,9 +21,6 @@
         <classes>
             <class name="test.authentication.LoginTest"/>
         </classes>
-<!--        <packages>-->
-<!--            <package name="test.authentication.LoginTest"/>-->
-<!--        </packages>-->
     </test>
 
 </suite>

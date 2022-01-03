@@ -19,3 +19,8 @@ appium -p 6000 --nodeconfig node_6000_config.json
 ```
 appium -p 7000 --nodeconfig node_7000_config.json
 ```
+
+mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/test-suites/Parallel.xml -Dhub=http://192.168.1.5
+
+## Start jenkins
+java -jar ~/Downloads/jenkins.war.
